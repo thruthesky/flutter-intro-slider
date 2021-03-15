@@ -485,11 +485,11 @@ class IntroSliderState extends State<IntroSlider> with SingleTickerProviderState
 
   TabController tabController;
 
-  List<Widget> tabs = new List();
-  List<Widget> dots = new List();
-  List<double> sizeDots = new List();
-  List<double> opacityDots = new List();
-  List<ScrollController> scrollControllers = new List();
+  List<Widget> tabs = List.empty(growable: true);
+  List<Widget> dots = List.empty(growable: true);
+  List<double> sizeDots = List.empty(growable: true);
+  List<double> opacityDots = List.empty(growable: true);
+  List<ScrollController> scrollControllers = List.empty(growable: true);
 
   // For DOT_MOVEMENT
   double marginLeftDotFocused = 0;
@@ -780,6 +780,7 @@ class IntroSliderState extends State<IntroSlider> with SingleTickerProviderState
     if (tabController.index + 1 == slides.length) {
       return Container(width: MediaQuery.of(context).size.width / 4);
     } else {
+      // ignore: deprecated_member_use
       return FlatButton(
         onPressed: onSkipPress,
         child: renderSkipBtn,
@@ -792,6 +793,7 @@ class IntroSliderState extends State<IntroSlider> with SingleTickerProviderState
   }
 
   Widget buildDoneButton() {
+    // ignore: deprecated_member_use
     return FlatButton(
       onPressed: onDonePress,
       child: renderDoneBtn,
@@ -806,6 +808,7 @@ class IntroSliderState extends State<IntroSlider> with SingleTickerProviderState
     if (tabController.index == 0) {
       return Container(width: MediaQuery.of(context).size.width / 4);
     } else {
+      // ignore: deprecated_member_use
       return FlatButton(
         onPressed: () {
           if (!this.isAnimating(tabController.animation.value)) {
@@ -822,6 +825,7 @@ class IntroSliderState extends State<IntroSlider> with SingleTickerProviderState
   }
 
   Widget buildNextButton() {
+    // ignore: deprecated_member_use
     return FlatButton(
       onPressed: () {
         onNextPress();
